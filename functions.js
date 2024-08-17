@@ -76,6 +76,12 @@ function relatedBooks(bookId, authors, books) {
  ****************************************************************/
 function friendliestAuthor(authors) {
   // Your code goes here
+  const friendliestAuthor = ""
+  authors.forEach(authors=>{
+    authors.filter(author=>{
+
+    })
+  })
 }
 // console.log(friendliestAuthor(authors));
 
@@ -89,3 +95,49 @@ module.exports = {
   relatedBooks,
   friendliestAuthor,
 };
+
+function formatDuration (sec) {
+  const duration = {
+    seconds: {
+      val: sec,
+      str: `${this.val} ${this.val > 1 ? "minutes" : "minute"}`
+    },
+    minutes: {
+      val: 0,
+      str: `${this.val} ${this.val > 1 ? "minutes" : "minute"}`
+    },
+    hours: {
+      val: 0,
+      str: `${this.val} ${this.val > 1 ? "minutes" : "minute"}`
+    },
+    days: {
+      val: 0,
+      str: `${this.val} ${this.val > 1 ? "minutes" : "minute"}`
+    },
+    years: {
+      val: 0,
+      str: `${this.val} ${this.val > 1 ? "minutes" : "minute"}`
+    } 
+    
+  }
+  const {seconds, minutes, hours, days, years} = duration
+  while(seconds.val > 59){
+    minutes.val += 1
+    seconds.val -= 60
+  }
+  while(minutes.val > 59){
+    hours.val += 1
+    minutes.val -= 60
+  }
+  while(hours.val > 24){
+    days.val += 1
+    hours.val -= 24
+  }
+  while(days > 365){
+    years.val += 1
+    days.val -= 365
+  }
+  return minutes.val
+}
+console.log(formatDuration(61))
+
